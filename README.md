@@ -44,13 +44,13 @@
 11. Setelah option storage di arahkan ke file ISO Ubuntu Server dan option network di setting ke Bridge Adapter. 
 12. Selanjutnya proses instalasi Ubuntu Server akan dilakukan dengan pilih Start.
 13. Maka kan muncul halaman console ke VM ubuntu yang kita jalankan.  
-- Tunggu hingga Halaman proses instalasi Linux Ubuntu Server 18.04 tampil.
+- Tunggu hingga Halaman proses instalasi Linux Ubuntu Server tampil.
 - Pada bagian halaman proses instalasi bagian pemilihan bahasa pilih  English.
 14. Lalu pada halaman Installer update available pilih continue without updating
 <img src="https://github.com/MuhammadVito/Keamanan-Jaringan-Komputer-Kelompok-8/assets/152166427/72acc92d-32c5-4c8f-9442-63ea96d607a8" width=60% height=60%>
 
 15. Pada halaman Keyboard configuration  biarkan default pilih Done
-16. 16. Pada halaman Network Connection  biarkan default pilih Done
+16. Pada halaman Network Connection  biarkan default pilih Done
 - Pada bagian ini Ubuntu server yang kita install akan mendapatkan IP secara DHCP karena sebelumnya telah disetting option networknya ke Bridge Adapter yang menyediakan secara default Service DHCP.
 17. Pada halaman Configure Proxy  biarkan default pilih Done
 18. Pada halaman Configure ubuntu archive mirror  biarkan default pilih Done
@@ -61,9 +61,9 @@
 <img src="https://github.com/MuhammadVito/Keamanan-Jaringan-Komputer-Kelompok-8/assets/152166427/d6ebcb20-5d88-471a-873a-15538bdfc5e2" width=60% height=60%>
 
 21. Pada halaman Filesystem Setup  selanjutnya pilih Done 
-- Pada bagian ini secara otomatis akan di buat partisi sesuai kebutuhan dari Ubuntu Server 18.04
+- Pada bagian ini secara otomatis akan di buat partisi sesuai kebutuhan dari Ubuntu Server
 22. Pada halaman Filesystem Setup  selanjutnya kan muncul pop-up konfirmasi pilih Continue
-23. Pada halaman Profile Setup masukkan informasi hostname, username dan password yang akan digunakank, kemudian pilih Done.
+23. Pada halaman Profile Setup masukkan informasi hostname, username dan password yang akan digunakan, kemudian pilih Done.
 24. Pada halaman SSH Setup  centang option Install OpenSSH Server dengan menekan spasi lalu pilih Done
 25. Pada halaman Featured Server Snaps  biarkan default pilih Done
 <img src="https://github.com/MuhammadVito/Keamanan-Jaringan-Komputer-Kelompok-8/assets/152166427/6585484e-bcb7-43c6-8bbc-73fefdd32880" width=60% height=60%>
