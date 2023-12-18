@@ -75,3 +75,6 @@
 
 29. Untuk Proses Post-Install lakukan verifikasi koneksi ke internet dengan ping ke IP 8.8.8.8 dan Domain google.com.
 <img src="https://github.com/MuhammadVito/Keamanan-Jaringan-Komputer-Kelompok-8/assets/152166427/8fe3373b-6508-4974-85da-94f9d3c6339d" width=60% height=60%>
+
+## C. Cara Instalasi dan Konfigurasi Firewall UFW pada Ubuntu Server
+
