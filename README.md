@@ -112,7 +112,7 @@ Jika sudah diinstall, maka UFW sudah siap untuk dikonfigurasikan. Berikut langka
 11. Mengizinkan IP Address tertentu agar dapat mengakses semua service yang ada pada server tanpa terblok oleh firewall. Perintah nya seperti gambar dibawah ini:
 <img src="https://github.com/MuhammadVito/Keamanan-Jaringan-Komputer-Kelompok-8/assets/152166427/88ba6c38-5854-42ca-a5b8-4a05e13c1db5" width=60% height=60%>
 
-12. Atau mengizinkan IP Address tertentu untuk port atau service tertentu. Misalnya, kita menginginkan agar IP 192.100.10.10 hanya bisa mengakses port 80, maka perintah nya seperti gambar dibawah ini:
+12. Mengizinkan IP Address tertentu untuk port atau service tertentu. Misalnya, kita menginginkan agar IP 192.100.10.10 hanya bisa mengakses port 80, maka perintah nya seperti gambar dibawah ini:
 <img src="https://github.com/MuhammadVito/Keamanan-Jaringan-Komputer-Kelompok-8/assets/152166427/e860edde-6ebb-4c3b-88cd-3136cfcefecf" width=60% height=60%>
 
 13. Mengizinkan subnet untuk range IP Address tertentu. Jika kita ingin mengizinkan subnet IP Address, kita dapat melakukannya dengan menggunakan notasi CIDR untuk menentukan netmask. Misalnya, kita ingin mengizinkan semua alamat IP mulai dari 192.100.10.1 ke 192.100.10.254, kita bisa menggunakan perintah ini:
