@@ -77,4 +77,62 @@
 <img src="https://github.com/MuhammadVito/Keamanan-Jaringan-Komputer-Kelompok-8/assets/152166427/8fe3373b-6508-4974-85da-94f9d3c6339d" width=60% height=60%>
 
 ## C. Cara Instalasi dan Konfigurasi Firewall UFW pada Ubuntu Server
+1. Pertama buka Ubuntu dan buka terminal. Kemudian pastikan UFW sudah terinstall. Untuk distro Ubuntu sebenarnya sudah terinstal secara default, namun kalau belum terinstall, silahkan install terlebih dahulu dengan menggunakan perintah sudo apt-get install ufw, seperti gambar dibawah ini:
+<img src="https://github.com/MuhammadVito/Keamanan-Jaringan-Komputer-Kelompok-8/assets/152166427/b6760f9c-f7aa-4fba-9b4b-59ceb24c5766" width=60% height=60%>
 
+Jika sudah diinstall, maka UFW sudah siap untuk dikonfigurasikan. Berikut langkah-langkah konfigurasi firewall dengan menggunakan UFW.
+
+2. Pertama, konfigurasi UFW untuk IPV6, tujuannya tentu saja agar firewall dapat mengelola rule untuk IPV6. Jalankan perintah sudo nano /etc/default/ufw masuk ke direktori dan  ubah IPV6=no menjadi IPV6=yes kemudian tekan CTRL+X dan tekan Y, lalu tekan enter untuk menyimpan perubahan tersebut. konfigurasi nya seperti gambar dibawah ini:
+<img src="https://github.com/MuhammadVito/Keamanan-Jaringan-Komputer-Kelompok-8/assets/152166427/4d589681-0492-47e9-9103-6cc6d6963869" width=60% height=60%>
+
+3. Selanjutnya cek status UFW apakah sudah aktif atau belum. Jalankan perintah sudo ufw status verbose. Jika status nya inactive seperti tampilan gambar dibawah ini, berarti UFW belum diaktifkan.
+<img src="https://github.com/MuhammadVito/Keamanan-Jaringan-Komputer-Kelompok-8/assets/152166427/a15f8d20-4b90-4332-9c4d-e3aeebb9f0ab" width=60% height=60%>
+
+
+4. Aktifkan UFW dengan menggunakan perintah ufw enable, kemudian akan muncul tampilan seperti dibawah ini:
+<img src="https://github.com/MuhammadVito/Keamanan-Jaringan-Komputer-Kelompok-8/assets/152166427/2f00113a-3a86-4d2a-a50f-7848c9e670a8" width=60% height=60%>
+
+5. Selanjutnya gunakan pengaturan default untuk firewall dengan perintah sudo ufw default deny incoming & sudo ufw default allow outgoing seperti dibawah ini:
+<img src="https://github.com/MuhammadVito/Keamanan-Jaringan-Komputer-Kelompok-8/assets/152166427/4f12df1a-d8b2-4f2c-9779-6bbe6880110d" width=60% height=60%>
+
+6. Berikutnya buat rule untuk mengatur segala koneksi. Rule yang kita digunakan bertujuan untuk mengizinkan service ssh dan telnet pada UFW, sehingga kedua service tersebut tidak akan di block. Untuk membuat rule, gunakan perintah seperti dibawah ini:
+<img src="https://github.com/MuhammadVito/Keamanan-Jaringan-Komputer-Kelompok-8/assets/152166427/3bd33c83-3a80-4465-897e-4239ddd4240b" width=60% height=60%>
+
+7. Setelah itu, membuat allow koneksi untuk UFW. Berikut ini cara untuk menambahkan perizinan traffic pada rule, dan terdapat beberapa contoh service yang sangat umum atau yang disarankan dan perlu untuk diizinkan. Jika ada service lainya yang ingin diizinkan, bisa menambahkan rulenya lagi sesuai dengan servicenya.
+8. Mengizinkan traffic HTTP port 80 untuk keperluan akses web server. Perintah nya seperti dibawah ini:
+<img src="https://github.com/MuhammadVito/Keamanan-Jaringan-Komputer-Kelompok-8/assets/152166427/f82c7e63-9249-48f1-b17d-47f4fa5aaee1" width=60% height=60%>
+
+
+9. Mengizinkan koneksi FTP port 21 untuk proses upload / download file dari dan ke server menggunakan aplikasi FTP Client seperti FileZilla. Perintah nya seperti dibawah ini:
+<img src="https://github.com/MuhammadVito/Keamanan-Jaringan-Komputer-Kelompok-8/assets/152166427/853dddb9-ac9a-46c3-9f54-da4c4258d05d" width=60% height=60%>
+
+10. Mengizinkan port range tertentu agar tidak terblok oleh firewall, misalnya kita ingin mengizinkan port dengan range 6000 sampai 6007 pada protocol TCP dan UDP, maka perintah nya seperti gambar dibawah ini:
+<img src="https://github.com/MuhammadVito/Keamanan-Jaringan-Komputer-Kelompok-8/assets/152166427/7138c6bc-f3fe-42be-965a-2680e56d9c4e" width=60% height=60%>
+
+11. Mengizinkan IP Address tertentu agar dapat mengakses semua service yang ada pada server tanpa terblok oleh firewall. Perintah nya seperti gambar dibawah ini:
+<img src="https://github.com/MuhammadVito/Keamanan-Jaringan-Komputer-Kelompok-8/assets/152166427/88ba6c38-5854-42ca-a5b8-4a05e13c1db5" width=60% height=60%>
+
+12. Atau mengizinkan IP Address tertentu untuk port atau service tertentu. Misalnya, kita menginginkan agar IP 192.100.10.10 hanya bisa mengakses port 80, maka perintah nya seperti gambar dibawah ini:
+<img src="https://github.com/MuhammadVito/Keamanan-Jaringan-Komputer-Kelompok-8/assets/152166427/e860edde-6ebb-4c3b-88cd-3136cfcefecf" width=60% height=60%>
+
+13. Mengizinkan subnet untuk range IP Address tertentu. Jika kita ingin mengizinkan subnet IP Address, kita dapat melakukannya dengan menggunakan notasi CIDR untuk menentukan netmask. Misalnya, kita ingin mengizinkan semua alamat IP mulai dari 192.100.10.1 ke 192.100.10.254, kita bisa menggunakan perintah ini:
+<img src="https://github.com/MuhammadVito/Keamanan-Jaringan-Komputer-Kelompok-8/assets/152166427/97d40dc3-75ac-4fef-af45-64ddbb6ffcfa" width=60% height=60%>
+
+14. mengizinkan agar range IP tertentu hanya bisa mengakses service tertentu saja. Misalnya range IP 192.100.10.0/24 hanya bisa mengakses service yang ada di port 80, kita bisa gunakan perintah seperti dibawah ini:
+<img src="https://github.com/MuhammadVito/Keamanan-Jaringan-Komputer-Kelompok-8/assets/152166427/5ad3fe62-72d4-44d5-a1b9-03c613ef80cc" width=60% height=60%>
+
+15. Deny digunakan untuk memblok koneksi yang masuk dengan UFW. Berikut merupakan cara untuk memblokir koneksi dimana koneksi tersebut tidak akan bisa diakses sesuai dengan perintah yang digunakan. Jika kita ingin memblok koneksi dari HTTP, maka perintah nya seperti berikut:
+<img src="https://github.com/MuhammadVito/Keamanan-Jaringan-Komputer-Kelompok-8/assets/152166427/2afd14d6-b4b1-42f3-8726-185a3213fb1c" width=60% height=60%>
+
+16. jika ingin memblok koneksi dari IP Address tertentu, maka perintahnya seperti berikut:
+<img src="https://github.com/MuhammadVito/Keamanan-Jaringan-Komputer-Kelompok-8/assets/152166427/c3b8d0de-8443-4184-bec7-3391106de2aa" width=60% height=60%>
+
+17. Berikut merupakan cara untuk mereject koneksi yang digunakan, hampir sama seperti deny connection hanya saja menggunakan perintah yang berbeda.
+Jika kita ingin mereject koneksi dari HTTP, maka perintah nya seperti dibawah ini:
+<img src="https://github.com/MuhammadVito/Keamanan-Jaringan-Komputer-Kelompok-8/assets/152166427/cb89ba53-9885-41a4-a64f-d13bdca4fb89" width=60% height=60%>
+
+18. Jika kita ingin mereject koneksi dari IP Address tertentu, maka perintah nya seperti dibawah ini:
+<img src="https://github.com/MuhammadVito/Keamanan-Jaringan-Komputer-Kelompok-8/assets/152166427/b683fb71-a562-417e-ae4a-3de2a2b89c67" width=60% height=60%>
+
+19. Untuk menghapus rule firewall pada UFW yang sudah tidak digunakan, kita  bisa menggunakan perintah sudo ufw delete allow 23 (untuk menghapus rule yang ada pada port 23).
+20. Untuk mereset konfigurasi firewall pada UFW yang sudah dibuat, kita bisa membuatnya menjadi konfigurasi seperti semula dengan menggunakan perintah sudo ufw reset. Setelah UFW direset biasanya status nya otomatis akan kembali inactive, tapi kalau masih belum inactive, kita bisa gunakan perintah sudo ufw disable untuk menonaktifkannya.
